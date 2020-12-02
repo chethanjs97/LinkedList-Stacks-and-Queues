@@ -1,5 +1,6 @@
 package com.LinkedList;
 
+
 public class MyLinkedList<K> {
 	public INode head;
 	public INode tail;
@@ -47,8 +48,13 @@ public class MyLinkedList<K> {
 	}
 
 	private INode setNext(INode newNode) {
-		
 		return null;
+	}
+
+	public void insert(INode myNode, INode newNode) {
+		INode tempNode = myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
 	}
 
 	public static void main(String[] args) {
@@ -59,8 +65,8 @@ public class MyLinkedList<K> {
 		MyNode<Integer> myThirdNode = new MyNode<Integer>(70);
 
 		myLinkList.append(myFirstNode);
-		myLinkList.append(mySecondNode);
 		myLinkList.append(myThirdNode);
+		myLinkList.insert(myFirstNode, mySecondNode);
 		myLinkList.printMyNodes();
 
 	}
